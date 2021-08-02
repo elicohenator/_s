@@ -22,3 +22,12 @@ function at_glance_content_table_end()
     }
   }
 }
+
+// add custom login logo to wp-login.php
+function custom_loginlogo() {
+  echo 
+  '<style type=”text/css”>
+    h1 a {background-image: url('.get_bloginfo('template_directory').'/images/login_logo.png) !important; }
+  </style>';
+}
+add_action('login_head', 'custom_loginlogo');
