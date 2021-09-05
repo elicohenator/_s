@@ -31,3 +31,18 @@ function custom_loginlogo() {
   </style>';
 }
 add_action('login_head', 'custom_loginlogo');
+
+// Preload custom fonts
+add_action('wp_head' , function(){
+  // $tempDir = get_template_directory_uri();
+  // $preloadFonts = array(
+  //   $tempDir . '/fonts/DINPro.woff2',
+  //   $tempDir . '/fonts/DINPro-Bold.woff2',
+  //   $tempDir . '/fonts/DINPro-Medium.woff2',
+  //   $tempDir . '/fonts/Blender.woff2',
+  //   $tempDir . '/fonts/Blender-Bold'
+  // );
+  // foreach ($preloadFonts as $font): 
+  //   echo '<link rel="preload" herf="'.$font.'" as="font" type="font/woff2" crossorgin>';
+  // endforeach;
+});
