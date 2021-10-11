@@ -43,6 +43,6 @@ add_action('wp_head' , function(){
   //   $tempDir . '/fonts/Blender-Bold'
   // );
   // foreach ($preloadFonts as $font): 
-  //   echo '<link rel="preload" herf="'.$font.'" as="font" type="font/woff2" crossorgin>';
+  //   echo '<link rel="preload" href="'.$font.'" as="font" type="font/woff2" crossorgin>';
   // endforeach;
 });
