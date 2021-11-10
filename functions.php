@@ -40,9 +40,6 @@ add_action( 'wp_enqueue_scripts', '_s_scripts' );
 
 
 // Functions which enhance the theme by hooking into WordPress.
-require get_template_directory() . '/inc/cleanup.php';
-
-// Functions which enhance the theme by hooking into WordPress.
 require get_template_directory() . '/inc/enhancements.php';
 
 // Custom template tags for this theme.
