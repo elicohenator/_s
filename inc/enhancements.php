@@ -26,8 +26,10 @@ function at_glance_content_table_end()
 // add custom login logo to wp-login.php
 function custom_loginlogo() {
   echo 
-  '<style type=”text/css”>
-    h1 a {background-image: url('.get_bloginfo('template_directory').'/images/login_logo.png) !important; }
+  '<style type="text/css">
+    .login #login h1 a {background-image: url('.get_bloginfo('template_directory').'/images/login_logo.png) !important; }
+    body.wp-core-ui .button-primary{ border-radius: 2px; border: none; background-color: #e8001d; box-shadow: none; text-shadow: none; transition: .2s; }
+    body.wp-core-ui .button-primary:hover{ background-color: #e8001d; }
   </style>';
 }
 add_action('login_head', 'custom_loginlogo');
