@@ -25,11 +25,15 @@ function at_glance_content_table_end()
 
 // add custom login logo to wp-login.php
 function custom_loginlogo() {
+  // set width of logo
+  // set background-color of button-primary
   echo 
   '<style type="text/css">
-    .login #login h1 a {background-image: url('.get_bloginfo('template_directory').'/images/login_logo.png) !important; }
-    body.wp-core-ui .button-primary{ border-radius: 2px; border: none; background-color: #e8001d; box-shadow: none; text-shadow: none; transition: .2s; }
-    body.wp-core-ui .button-primary:hover{ background-color: #e8001d; }
+    body.login #login h1 a {background-image: url('.get_bloginfo('template_directory').'/images/login_logo.png) !important; width: 320px; background-size: contain; }
+    body.login #backtoblog a,  body.login #nav a { color: #000; }
+		body.login #backtoblog a:hover,  body.login #nav a:hover{ text-decoration: underline; }
+		body.wp-core-ui .button-primary { border: none; background-color: #000; box-shadow: none; text-shadow: none; transition: .2s;}
+		body.wp-core-ui .button-primary:hover{ background-color: #000; opacity: 0.8; }
   </style>';
 }
 add_action('login_head', 'custom_loginlogo');
@@ -39,10 +43,6 @@ add_action('wp_head' , function(){
   // $tempDir = get_template_directory_uri();
   // $preloadFonts = array(
   //   $tempDir . '/fonts/DINPro.woff2',
-  //   $tempDir . '/fonts/DINPro-Bold.woff2',
-  //   $tempDir . '/fonts/DINPro-Medium.woff2',
-  //   $tempDir . '/fonts/Blender.woff2',
-  //   $tempDir . '/fonts/Blender-Bold'
   // );
   // foreach ($preloadFonts as $font): 
   //   echo '<link rel="preload" href="'.$font.'" as="font" type="font/woff2" crossorgin>';
