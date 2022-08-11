@@ -29,7 +29,7 @@ function custom_loginlogo() {
   // set background-color of button-primary
   echo 
   '<style type="text/css">
-    body.login #login h1 a {background-image: url('.get_bloginfo('template_directory').'/images/login_logo.png) !important; width: 320px; background-size: contain; }
+    body.login #login h1 a {background-image: url('.get_bloginfo('template_directory').'/media/login_logo.png) !important; width: 320px; background-size: contain; }
     body.login #backtoblog a,  body.login #nav a { color: #000; }
 		body.login #backtoblog a:hover,  body.login #nav a:hover{ text-decoration: underline; }
 		body.wp-core-ui .button-primary { border: none; background-color: #000; box-shadow: none; text-shadow: none; transition: .2s;}
