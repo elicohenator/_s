@@ -12,11 +12,12 @@ get_header();
 
 	<main id="content">
 
-		<section class="error-404 not-found">
-			<header class="page-header">
-				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', '_s' ); ?></h1>
-			</header><!-- .page-header -->
-		</section><!-- .error-404 -->
+    <section class="error-404 not-found">
+      <header>
+        <h1><?= __('404 Not Found', '_s'); ?></h1>
+        <p><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?= __('Return to the home page', '_s'); ?></a></p>
+      </header>
+    </section>
 
 	</main><!-- #main -->
 
