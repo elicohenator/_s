@@ -38,13 +38,14 @@ function custom_loginlogo() {
 }
 add_action('login_head', 'custom_loginlogo');
 
-// Preload custom fonts
+// Preload custom fonts / styles
 add_action('wp_head' , function(){
-  // $tempDir = get_template_directory_uri();
-  // $preloadFonts = array(
-  //   $tempDir . '/fonts/DINPro.woff2',
-  // );
-  // foreach ($preloadFonts as $font): 
-  //   echo '<link rel="preload" href="'.$font.'" as="font" type="font/woff2" crossorgin>';
-  // endforeach;
+  $tempDir = get_template_directory_uri();
+  $preloadItems = array(
+    array($tempDir . '/fonts/icomoon.woff2', 'font'),
+    array($tempDir . '/screen.css', 'style')
+  );
+  foreach ($preloadItems as $item): 
+    echo '<link rel="preload" href="'.$item[0].'" as="'.$item[1].'">';
+  endforeach;
 });
