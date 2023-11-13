@@ -4,7 +4,6 @@
  */
 
 if ( ! defined( '_S_VERSION' ) ) {
-	// Replace the version number of the theme on each release.
 	define( '_S_VERSION', '1.0.0' );
 }
 
@@ -32,17 +31,18 @@ add_action( 'after_setup_theme', '_s_setup' );
  * Enqueue scripts and styles.
  */
 function _s_scripts() {
-  wp_enqueue_style( '_s-screen', get_template_directory_uri() .'/styles/screen.css', array(), _S_VERSION );
+  wp_enqueue_style( '_s-screen', get_template_directory_uri() .'/styles/screen.css', array(), filemtime(get_template_directory_uri() . '/styles/screen.css') );
 	wp_enqueue_style( '_s-style', get_stylesheet_uri(), array(), _S_VERSION );
 
-  wp_enqueue_script( '_s-scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), _S_VERSION, true );
-  wp_enqueue_script( '_s-custom', get_template_directory_uri() . '/js/custom.js', array('jquery'), _S_VERSION, true );
-	wp_enqueue_script( '_s-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+  wp_enqueue_script( '_s-scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), filemtime(get_template_directory_uri() . '/js/scripts.js'), true );
+  wp_enqueue_script( '_s-custom', get_template_directory_uri() . '/js/custom.js', array('jquery'), filemtime(get_template_directory_uri() . '/js/custom.js'), true );
+	wp_enqueue_script( '_s-navigation', get_template_directory_uri() . '/js/navigation.js', array(), filemtime(get_template_directory_uri() . '/js/navigation.js'), true );
 
   $phpVars = array(
     'template_directory' => get_template_directory_uri(),
     'ajax_url' => admin_url("admin-ajax.php"),
-    'ajax_nonce' => wp_create_nonce("ajax_nonce")
+    'ajax_nonce' => wp_create_nonce("ajax_nonce"),
+		'version' => _S_VERSION
   );
   wp_localize_script('_s-custom', 'php_vars', $phpVars);
 }
