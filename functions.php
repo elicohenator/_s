@@ -34,12 +34,12 @@ add_action('after_setup_theme', '_s_setup');
  */
 function _s_scripts()
 {
-	wp_enqueue_style('_s-screen', get_template_directory_uri() . '/styles/screen.css', array(), filemtime(get_stylesheet_uri() . '/styles/screen.css'));
+	wp_enqueue_style('_s-screen', get_template_directory_uri() . '/styles/screen.css', array(), filemtime(get_template_directory() . '/styles/screen.css'));
 	wp_enqueue_style('_s-style', get_stylesheet_uri(), array(), _S_VERSION);
 
-	wp_enqueue_script('_s-scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), filemtime(get_stylesheet_uri() . '/js/scripts.js'), true);
-	wp_enqueue_script('_s-custom', get_template_directory_uri() . '/js/custom.js', array('jquery'), filemtime(get_stylesheet_uri() . '/js/custom.js'), true);
-	wp_enqueue_script('_s-navigation', get_template_directory_uri() . '/js/navigation.js', array(), filemtime(get_stylesheet_uri() . '/js/navigation.js'), true);
+	wp_enqueue_script('_s-scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), filemtime(get_template_directory() . '/js/scripts.js'), true);
+	wp_enqueue_script('_s-custom', get_template_directory_uri() . '/js/custom.js', array('jquery'), filemtime(get_template_directory() . '/js/custom.js'), true);
+	wp_enqueue_script('_s-navigation', get_template_directory_uri() . '/js/navigation.js', array(), filemtime(get_template_directory() . '/js/navigation.js'), true);
 
 	$phpVars = array(
 		'template_directory' => get_template_directory_uri(),
