@@ -29,6 +29,21 @@ if (!function_exists('_s_setup')) :
 endif;
 add_action('after_setup_theme', '_s_setup');
 
+
+/** 
+ * Remove extra image sizes
+ */
+function remove_extra_image_sizes()
+{
+	foreach (get_intermediate_image_sizes() as $size) {
+		if (!in_array($size, array('thumbnail', 'medium', 'large', '2048x2048'))) {
+			remove_image_size($size);
+		}
+	}
+}
+add_action('init', 'remove_extra_image_sizes');
+
+
 /**
  * Enqueue scripts and styles.
  */
@@ -63,6 +78,12 @@ require get_template_directory() . '/inc/template-functions.php';
 
 // Customizer additions.
 require get_template_directory() . '/inc/customizer.php';
+
+// Customizer additions.
+require get_template_directory() . '/inc/admin.php';
+
+// Customizer additions.
+require get_template_directory() . '/inc/acf.php';
 
 // Load WooCommerce compatibility file.
 if (class_exists('WooCommerce')) {

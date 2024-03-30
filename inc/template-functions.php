@@ -1,9 +1,12 @@
 <?php
 /**
  * Functions which enhance the theme by hooking into WordPress
- *
- * @package _s
  */
+
+/**
+ * Clean WPCF7 Formatting
+ */
+add_filter('wpcf7_autop_or_not', '__return_false');
 
 /**
  * Add a pingback url auto-discovery header for single posts, pages, or attachments.

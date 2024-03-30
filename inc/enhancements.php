@@ -37,15 +37,3 @@ function custom_loginlogo() {
   </style>';
 }
 add_action('login_head', 'custom_loginlogo');
-
-// Preload custom fonts / styles
-add_action('wp_head' , function(){
-  $tempDir = get_template_directory_uri();
-  $preloadItems = array(
-    array($tempDir . '/fonts/icomoon.woff2', 'font'),
-    array($tempDir . '/screen.css', 'style')
-  );
-  foreach ($preloadItems as $item): 
-    echo '<link rel="preload" href="'.$item[0].'" as="'.$item[1].'">';
-  endforeach;
-});
