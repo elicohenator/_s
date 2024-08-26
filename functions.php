@@ -60,6 +60,8 @@ function _s_scripts()
 		'template_directory' => get_template_directory_uri(),
 		'ajax_url' => admin_url("admin-ajax.php"),
 		'ajax_nonce' => wp_create_nonce("ajax_nonce"),
+		'scripts_async_version' => filemtime(get_template_directory() . '/js/scripts-async.js'),
+		'custom_async_version' => filemtime(get_template_directory() . '/js/custom-async.js'),
 		'version' => _S_VERSION
 	);
 	wp_localize_script('_s-custom', 'php_vars', $phpVars);
@@ -67,11 +69,8 @@ function _s_scripts()
 add_action('wp_enqueue_scripts', '_s_scripts');
 
 
-// Functions which enhance the theme by hooking into WordPress.
+// lean_s custom enhancements
 require get_template_directory() . '/inc/enhancements.php';
-
-// Custom template tags for this theme.
-require get_template_directory() . '/inc/template-tags.php';
 
 // Functions which enhance the theme by hooking into WordPress.
 require get_template_directory() . '/inc/template-functions.php';
